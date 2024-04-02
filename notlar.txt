@@ -1,0 +1,41 @@
+reactte lifting state uplar performan icin onemlidir
+localize etmeye yarar/
+
+bi component render olursa altindaki butun componentlerde render olur
+bu performas kaybina sebep oluro yuzden stateleri nekadar localize edebilirsek okadar iyidir.
+
+local stateleri
+lifting state uplar
+context apiler
+redux gibi state yoneticiler
+bunlari sira ileg erektikce kullanmak gerekir.
+
+---
+JavaScript'te "optional chaining" (opsiyonel zincirleme) özelliği, nesne zincirlerinde veya özelliklere erişirken ortaya çıkabilecek "TypeError" hatalarını önlemek için kullanılan bir özelliktir. Bu özellik, bir nesne zincirinde bir veya daha fazla özelliğe erişirken, zincirin herhangi bir noktasında değerin "null" veya "undefined" olabileceği durumlarda işe yarar.
+Geleneksel olarak, bir nesne zincirinde herhangi bir özelliğe erişirken her adımda null veya undefined olup olmadığını kontrol etmek için birden fazla if ifadesi kullanılır. Ancak, bu işlem karmaşık ve okunması zor olabilir. Optional chaining, bu durumu daha temiz ve kompakt bir şekilde ele alır.
+Optional chaining, bir nesne zincirindeki herhangi bir adımın sonuna "?." işaretini ekleyerek kullanılır. Bu işaret, zincirdeki herhangi bir noktanın null veya undefined olması durumunda JavaScript motorunun işlemi durdurmasını ve TypeError hatası üretmemesini sağlar.
+Örnek kullanım:
+```javascript
+let user = {
+  name: "John",
+  address: {
+    street: "123 Main St",
+    city: "New York",
+    zipCode: "10001"
+  }
+};
+// Bu kod TypeError hatası üretebilir, çünkü user.address null veya undefined olabilir.
+//let city = user.address.city;
+// Optional chaining kullanarak bu hatayı önleyebiliriz.
+let city = user.address?.city;
+console.log(city); // Eğer address null veya undefined ise, city undefined olacak.
+```
+Bu örnekte, `user` nesnesinin içinde bir `address` özelliği var. Ancak, `address` özelliği null veya undefined olabilir. Geleneksel olarak, `user.address.city` yazdığımızda eğer `address` null veya undefined ise TypeError hatası alırız. Ancak, optional chaining kullanarak `user.address?.city` yazdığımızda, eğer `address` null veya undefined ise, JavaScript bu hata yerine city değişkenine undefined atar. Bu şekilde, programın beklenmedik şekilde çökmesini önleriz
+---
+
+
+
+//
+----
+
+optional chaining yapmak lazim hep.
