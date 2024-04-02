@@ -1,19 +1,26 @@
 import React from "react";
 import { Col, Container, Row } from "react-bootstrap";
+import { addLocal } from "../helper/utils";
 
 const AppointmentList = ({ appointments, setAppointments }) => {
   console.log(appointments);
 
 
   const handleDelete = (ID) => {
+    const newAppo = appointments?.filter(item => item.id != ID);
     setAppointments(
-      appointments?.filter(item => item.id != ID)
+      newAppo
     )
+    addLocal("appointments",newAppo);
+    // localStorage.setItem("appointments",JSON.stringify( newAppo));
   }
   const handleToggle = (ID) => {
+    const newAppo = appointments?.map(item =>  item.id == ID ? {...item,consulted:!item.consulted} : item );
     setAppointments(
-      appointments?.map(item =>  item.id == ID ? {...item,consulted:!item.consulted} : item )
+      newAppo
     )
+    addLocal("appointments",newAppo);
+    // localStorage.setItem("appointments",JSON.stringify( newAppo));
   }
   return (
     <Container>

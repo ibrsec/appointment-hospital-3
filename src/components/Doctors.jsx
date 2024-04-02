@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { doctorData } from "../helper/data.jsx";
 import { Col, Container, Image, Row } from "react-bootstrap";
 import AddModal from "./AddModal.jsx";
+import { addLocal } from "../helper/utils.js";
 
 const Doctors = ({ appointments, setAppointments}) => {
 //   console.log(doctorData);
@@ -12,6 +13,10 @@ const Doctors = ({ appointments, setAppointments}) => {
   const handleClose = () => setShow(false);
   const addAppointment = (newAppo) => {
     setAppointments([...appointments, newAppo]);
+    addLocal("appointments",[...appointments, newAppo])
+    // localStorage.setItem("appointments",JSON.stringify([...appointments, newAppo]))
+
+
   };
   return (
     <Container className="my-5">
